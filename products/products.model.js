@@ -41,6 +41,10 @@ function addReview(id, rating, comment) {
         return product.id === id
     })
 
+    if (productIndex === -1) {
+        throw new Error('Product not found')
+    }
+
     products[productIndex].reviews.push(review)
 
     return review
