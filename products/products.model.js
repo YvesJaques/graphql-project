@@ -31,9 +31,25 @@ function addNewProduct(id, description, price) {
     return newProduct
 }
 
+function addReview(id, rating, comment) {
+    const review = {
+        rating,
+        comment,
+    }
+
+    const productIndex = products.findIndex(product => {
+        return product.id === id
+    })
+
+    products[productIndex].reviews.push(review)
+
+    return review
+}
+
 module.exports = {
     getAllProducts,
     getProductsByPrice,
     getProductById,
     addNewProduct,
+    addReview
 }
